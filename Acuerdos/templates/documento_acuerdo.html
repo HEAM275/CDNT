@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 card text-center">
+    <h1>Detalle del Acuerdo</h1>
+    <p><strong>Código:</strong> {{ acuerdo.codigo }}</p>
+    <p><strong>Fecha de Emisión:</strong> {{ acuerdo.fecha_emision }}</p>
+    <p><strong>Contenido:</strong> {{ acuerdo.contenido }}</p>
+    <p><strong>Responsable:</strong> {{ acuerdo.responsable }}</p>
+    <p><strong>Fecha de Cumplimiento:</strong> {{ acuerdo.fecha_cumplimiento }}</p>
+    <p><strong>Participantes:</strong> {{ acuerdo.participantes }}</p>
+    <p><strong>Con Copia:</strong> {{ acuerdo.copia }}</p>
+    <p><strong>Emisor:</strong> {{ acuerdo.emisor }}</p>
+    <div class="text-center">
+        <button class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#detalleIndicacionModal">Documento</button>
+
+    </div>
+    <div class="modal fade" id="detalleIndicacionModal" tabindex="-1" aria-labelledby="detalleIndicacionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalleIndicacionModalLabel">Detalle del Acuerdo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Código:</strong> {{ acuerdo.codigo }}</p>
+                    <p><strong>Fecha de Emisión:</strong> {{ acuerdo.fecha_emision }}</p>
+                    <p><strong>Contenido:</strong> {{ acuerdo.contenido }}</p>
+                    <p><strong>Responsable:</strong> {{ acuerdo.responsable }}</p>
+                    <p><strong>Fecha de Cumplimiento:</strong> {{ acuerdo.fecha_cumplimiento }}</p>
+                    <p><strong>Participantes:</strong> {{ acuerdo.participantes }}</p>
+                    <p><strong>Con Copia:</strong> {{ acuerdo.copia }}</p>
+                    <p><strong>Emisor:</strong> {{ acuerdo.emisor }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <form method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Crear PDF</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

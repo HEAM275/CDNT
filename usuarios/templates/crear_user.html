@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="post" enctype="multipart/form-data" class=" card p-4 ">
+                <h1 class="text-center">Crear Usuario</h1>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        {{ form.password }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_first_name" class="form-label">Nombre</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_last_name" class="form-label">Apellidos</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_email" class="form-label">Correo</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_phone_number" class="form-label">Teléfono</label>
+                        {{ form.phone_number }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_role" class="form-label">Rol</label>
+                        {{ form.role }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_unidad" class="form-label">Unidad</label>
+                        {{ form.unidad }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="{% url 'principal' %}" class="btn btn-danger">Cancelar</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

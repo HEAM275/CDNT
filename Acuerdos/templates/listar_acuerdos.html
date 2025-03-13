@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 card">
+    <h1 class="text-center">Listado de Acuerdos</h1>
+    <div class="table-container ">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th>Código</th>
+                    <th>Título</th>
+                    <th>Emitida</th>
+                    <th>A cumplir</th>
+                    <th>Emisor</th>
+                    <th>Responsable</th>
+                    <th>Días</th>
+                    <th>Estado</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody id="acuerdos-tbody">
+                {% for acuerdo in page_obj %}
+                <td>{{ acuerdo.id }}</td>
+                <td>{{ acuerdo.codigo }}</td>
+                <td>{{ acuerdo.titulo }}</td>
+                <td>{{ acuerdo.fecha_emision }}</td>
+                <td>{{ acuerdo.fecha_cumplimiento }}</td>
+                <td>{{ acuerdo.emisor }}</td>
+                <td>{{ acuerdo.responsable }}</td>
+                <td>{{ acuerdo.dias }}</td>
+                <td>
+                    {{ acuerdo.estado }}
+                    {% if acuerdo.estado == 'Archivado' %}
+                    <i class="fas fa-archive"></i>
+                    {% elif acuerdo.estado == 'Cumplido' %}
+                    <i class="fas fa-check-circle"></i>
+                    {% elif acuerdo.estado == 'Espera' %}
+                    <i class="fas fa-clock"></i>
+                    {% elif acuerdo.estado == 'Incumplido' %}
+                    <i class="fas fa-times-circle"></i>
+                    {% elif acuerdo.estado == 'Confección' %}
+                    <i class="fas fa-pencil-alt"></i>
+                    {% elif acuerdo.estado == 'Proceso' %}
+                    <i class="fas fa-cogs"></i>
+                    {% endif %}
+                </td>
+                <td><a href="{% url 'mostrar_acuerdo' acuerdo.id %}" class="btn btn-primary">Ver Detalles</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Primera</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

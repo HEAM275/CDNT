@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card text-center" style="width: 50%;">
+        <div class="card-body">
+            <h1 class="card-title">Detalle de la Indicación</h1>
+            <h3 class="card-text">{{ indicacion.titulo }}</h3>
+            <p class="card-text">Emisor: {{ indicacion.emisor }}</p>
+            <p class="card-text">Categoría: {{ indicacion.categoria }}</p>
+            <p class="card-text">Estado: {{ indicacion.estado }}</p>
+            <h2>Acciones disponibles:</h2>
+            {% if acciones_urls %}
+            <div class="row">
+                {% for nombre_accion, url_accion in acciones_urls.items %}
+                <div class="col-md-6 mb-2">
+                    <a href="{{ url_accion }}" class="btn btn-primary btn-block">{{ nombre_accion }}</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No hay acciones disponibles</p>
+            <a href="{% url 'listar_indicacion' %}" class="btn btn-primary btn-block">Atrás</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

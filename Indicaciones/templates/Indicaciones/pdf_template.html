@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de la Indicación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detalle de la Indicación</h1>
+    <p><strong>Código:</strong> {{ indicacion.codigo }}</p>
+    <p><strong>Fecha de Emisión:</strong> {{ indicacion.fecha_emision }}</p>
+    <p><strong>Contenido:</strong> {{ indicacion.contenido }}</p>
+    <p><strong>Responsable:</strong> {{ indicacion.responsable }}</p>
+    <p><strong>Fecha de Cumplimiento:</strong> {{ indicacion.fecha_cumplimiento }}</p>
+    <p><strong>Participantes:</strong> {{ indicacion.participantes }}</p>
+    <p><strong>Con Copia:</strong> {{ indicacion.copia }}</p>
+    <p><strong>Emisor:</strong> {{ indicacion.emisor }}</p>
+</body>
+
+</html>

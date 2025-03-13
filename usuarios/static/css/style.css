@@ -1,0 +1,131 @@
+/* static/css/style.css */
+body {
+    background-image: url("../image/f.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.icono {
+    width: 50px;
+    margin-right: 1%;
+}
+
+.blurred-background {
+    backdrop-filter: blur(5px);
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco con 80% de opacidad */
+    border: none;
+    /* Opcional: quitar bordes si no los quieres */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+.card-body {
+    backdrop-filter: blur(5px);
+    /* Opcional: difumina el fondo para mejor legibilidad */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.table-striped tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped tr:nth-of-type(even) {
+    background-color: #ffffff;
+}
+
+.estado-archivada {
+    background-color: #c0c0c0;
+    /* Color gris */
+}
+
+.estado-cumplida {
+    background-color: #98fb98;
+    /* Color verde claro */
+}
+
+.estado-espera {
+    background-color: #add8e6;
+    /* Color azul claro */
+}
+
+.estado-incumplida {
+    background-color: #ff6347;
+    /* Color rojo */
+}
+
+.estado-confeccion {
+    background-color: #ffeb3b;
+    /* Color amarillo */
+}
+
+.estado-proceso {
+    background-color: #ffcc80;
+    /* Color naranja */
+}
+
+.selected-row {
+    background-color: #c90303 !important;
+    /* Cambia el color según prefieras */
+    font-weight: bold;
+}
+
+.subtitulos {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco con 80% de opacidad */
+    border: none;
+    /* Opcional: quitar bordes si no los quieres */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+
+/* .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+} */

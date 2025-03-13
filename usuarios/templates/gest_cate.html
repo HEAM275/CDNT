@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 mb-4 card">
+    <h1 class="text-center" ">Gestión de Categorías</h1>
+    <div class=" text-center mb-3">
+        <a href="{% url 'categoria_nueva' %}" class="btn btn-success">Nueva Categoría</a>
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nombre }}</td>
+            <td>
+                <a href="{% url 'categoria_editar' categoria.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'categoria_eliminar' categoria.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

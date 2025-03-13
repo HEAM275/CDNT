@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center subtitulos ">Prorrogar Acuerdo</h1>
+            <form method="post" enctype="multipart/form-data" class="card p-4 rounded shadow">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="id_titulo" class="form-label">Título</label>
+                        {{ form.titulo }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_fecha_emision" class="form-label">Fecha de Emisión</label>
+                        {{ form.fecha_emision }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_fecha_cumplimiento" class="form-label">Fecha de Cumplimiento</label>
+                        {{ form.fecha_cumplimiento }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_emisor" class="form-label">Emisor</label>
+                        {{ form.emisor }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_categoria" class="form-label">Categoría</label>
+                        {{ form.categoria }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_procedencia" class="form-label">Procedencia</label>
+                        {{ form.procedencia }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_responsable" class="form-label">Responsable</label>
+                        {{ form.responsable }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_proceso" class="form-label">Proceso</label>
+                        {{ form.proceso }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_participantes" class="form-label">Participantes</label>
+                        {{ form.participantes }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_con_copia" class="form-label">Con Copia</label>
+                        {{ form.con_copia }}
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="id_contenido" class="form-label">Contenido</label>
+                        {{ form.contenido }}
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="id_adjunto" class="form-label">Adjunto</label>
+                        {{ form.adjunto }}
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a href="{% url 'listar_acuerdos' %}" class="btn btn-danger">Cancelar</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

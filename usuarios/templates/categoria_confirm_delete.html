@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class=" container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="POST" class="card">
+                <h1 class="text-center">Eliminar Categoría</h1>
+                <p class="text-center">¿Estás seguro de que quieres eliminar la categoría "{{ object.nombre }}"?</p>
+                {% csrf_token %}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a href="{% url 'gest_cate' %}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

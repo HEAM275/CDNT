@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class=" container py-5">
+    <section class="card card-body">
+        <h1 class="display-1 text-center">
+            <b>C.D.N.T</b>
+        </h1>
+        {% csrf_token %}
+        <p class="text-center">
+            Bienvenido a la Sistema de Gestion del Centro de Dirección Nacional de
+            Telecomunicaciones, sistema con alcance hasta todos los Centros de Dirección Territoriales para facilitar el
+            manejo de todo lo relacionado con los Acuerdos y/o Indicaciones emitidos por la Dirección Nacional de
+            Telecomunicaciones.
+
+        </p>
+        <div class=" text-center">
+            {% if not user.is_authenticated %}
+            <a class="btn btn-primary" href="/signin">
+                Iniciar Sesión
+            </a>
+            {% endif %}
+        </div>
+    </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Acuerdo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detalle de la Acuerdo</h1>
+    <p><strong>Código:</strong> {{ acuerdo.codigo }}</p>
+    <p><strong>Fecha de Emisión:</strong> {{ acuerdo.fecha_emision }}</p>
+    <p><strong>Contenido:</strong> {{ acuerdo.contenido }}</p>
+    <p><strong>Responsable:</strong> {{ acuerdo.responsable }}</p>
+    <p><strong>Fecha de Cumplimiento:</strong> {{ acuerdo.fecha_cumplimiento }}</p>
+    <p><strong>Participantes:</strong> {{ acuerdo.participantes }}</p>
+    <p><strong>Con Copia:</strong> {{ acuerdo.copia }}</p>
+    <p><strong>Emisor:</strong> {{ acuerdo.emisor }}</p>
+</body>
+
+</html>

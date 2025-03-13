@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 mb-4 card">
+
+    <h2 class="text-center mb-3">Listado de Unidades</h2>
+    <div class="text-center mt-3 mb-3">
+        <a href="{% url 'nueva_unidad' %}" class="btn btn-success">Nueva Unidad Organizativa</a>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Siglas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for unidad in unidades %}
+            <tr>
+                <td>{{ unidad.id }}</td>
+                <td>{{ unidad.nombre }}</td>
+                <td>{{ unidad.siglas }}</td>
+                <td>
+                    <a href="{% url 'editar_unidad' unidad.id %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'eliminar_unidad' unidad.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+<!-- <div class="container mt-5 card">
+    <h1 class="text-center">Gestión de Unidades Organizativas</h1>
+    <div class="row">
+        <div class="col-md-4 card">
+            <h2 class="text-center">{% if editar %}Editar{% else %}Nueva{% endif %} Unidad</h2>
+            <form method="POST" class="row text-center">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">{% if editar %}Guardar Cambios{% else %}Agregar</button>
+
+                <a href="{% url 'gestion_unidades' %}" class="btn btn-secondary"> {% if editar %} Cancelar {% endif %}
+                </a>
+
+            </form>
+        </div>
+        <div class="col-md-8">
+            <h2>Listado de Unidades</h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Siglas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for unidad in unidades %}
+                    <tr>
+                        <td>{{ unidad.id }}</td>
+                        <td>{{ unidad.nombre }}</td>
+                        <td>{{ unidad.siglas }}</td>
+                        <td>
+                            <a href="{% url 'editar_unidad' unidad.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'eliminar_unidad' unidad.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+{% endif %}
+{% endblock %}

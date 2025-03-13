@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 card">
+    <h1 class="text-center ">Gestión de Roles</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Emisor</th>
+                    <th>Responsable</th>
+                    <th>Con Copia</th>
+                    <th>Participante</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in formset %}
+                <tr>
+                    <td>
+                        {{ form.id }} <!-- Campo oculto para id -->
+                        {{ form.username }}
+                    </td>
+                    <td>{{ form.es_emisor }}</td>
+                    <td>{{ form.es_responsable }}</td>
+                    <td>{{ form.es_con_copia }}</td>
+                    <td>{{ form.es_participante }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+</div>
+{% endblock %}
