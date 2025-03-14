@@ -11,7 +11,7 @@ from .forms import UserForm, CategoriaForm, Unid_OrgForm, EditarRolesForm
 
 
 def home(request):
-    return render(request, 'home.html', )
+    return render(request, 'Home.html', )
 
 
 def sign_in(request):
@@ -48,7 +48,7 @@ def salir(request):
 
 @login_required
 def gestUser(request):
-    usuarios = User.objects.all()
+    usuarios = User.objects.exclude(username='admin')
     return render(request, 'gestuser.html', {'usuarios': usuarios})
 
 
@@ -78,8 +78,8 @@ def eliminarU(request, username):
     if request.method == 'POST':
         user = get_object_or_404(User, username=username)
         user.delete()
-        messages.success(request, f'Usuario {
-                         username}) eliminado correctamente.')
+        messages.success(
+            request, f'Usuario {username}) eliminado correctamente.')
         return redirect('gestion_de_usuario')
     return redirect('gestion_de_usuario')
 
@@ -204,7 +204,8 @@ def gestion_roles(request):
                 actualizar_tablas_roles(instance)
             return redirect('principal')
     else:
-        formset = EditarRolesFormSet(queryset=User.objects.all())
+        formset = EditarRolesFormSet(
+            queryset=User.objects.exclude(username='admin'))
 
     return render(request, 'gestion_roles.html', {'formset': formset})
 

@@ -234,7 +234,7 @@ class Prorrogar_indicacion(View):
 
 # Ruta al ejecutable de wkhtmltopdf
 # Ajusta esta ruta según tu sistema operativo
-path_wkhtmltopdf = 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+path_wkhtmltopdf = '/usr/bin/wkhtmltopdf'
 
 config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 

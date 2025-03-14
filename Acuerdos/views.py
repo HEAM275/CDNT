@@ -155,7 +155,7 @@ def mostrar_acuerdo(request, id):
     return render(request, 'acuerdo_detalle.html', {'acuerdo': acuerdo, 'acciones': acciones})
 
 
-path_wkhtmltopdf = 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+path_wkhtmltopdf = '/usr/bin/wkhtmltopdf'
 
 config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
